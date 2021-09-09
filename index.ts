@@ -3,7 +3,7 @@ import { of, combineLatest } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 // Can be null or string for example purposes.
-const parameters$ = combineLatest([
+const parameters$ = combineLatest<[string | null, string | null]>([
   of<string | null>('foo'),
   of<string | null>(null)
 ]);
