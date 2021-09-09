@@ -11,13 +11,13 @@ const parameters$ = combineLatest<
   of<string | null>(null)
 ]);
 
-// #### Naming and/or typing parameers
-// Named parameters (foo and bar).
+// #### Naming and/or typing parameters
+// Named parameters but untyped
 const namedParameters$ = parameters$.pipe(
-  filter(([foo, bar]) => foo !== null && bar !== null)
+  filter(([foo, bar, other]) => foo !== null && bar !== null && other !== null)
 );
 
-// Typed parameters (string and string).
+// Typed parameters but unnamed
 const typedParameters$ = parameters$.pipe(
   filter((params): params is [string, string, string] => !params.includes(null))
 );
